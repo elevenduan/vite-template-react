@@ -12,5 +12,5 @@
 ## Available Scripts
 
 - `pnpm run dev`
-- `pnpm run dev:mock`
+- `pnpm run dev:no-mock`
 - `pnpm run build`
