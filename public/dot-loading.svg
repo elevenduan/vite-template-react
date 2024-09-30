@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg height="1em" viewBox="0 0 240 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="36" font-size="36">Loading</text>
+  <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+    <g transform="translate(-100.000000, -71.000000)">
+      <g transform="translate(95.000000, 71.000000)">
+        <g transform="translate(5.000000, 0.000000)">
+          <rect key="0" fill="currentColor" x="166" y="24" width="8" height="8" rx="2">
+            <animate
+              attributeName="y"
+              from="24"
+              to="24"
+              dur="2s"
+              begin="0s"
+              repeatCount="indefinite"
+              values="24; 14; 34; 24; 24"
+              keyTimes="0; 0.1; 0.3; 0.4; 1"
+            />
+          </rect>
+          <rect key="1" fill="currentColor" x="192" y="24" width="8" height="8" rx="2">
+            <animate
+              attributeName="y"
+              from="24"
+              to="24"
+              dur="2s"
+              begin="0.2s"
+              repeatCount="indefinite"
+              values="24; 14; 34; 24; 24"
+              keyTimes="0; 0.1; 0.3; 0.4; 1"
+            />
+          </rect>
+          <rect key="2" fill="currentColor" x="218" y="24" width="8" height="8" rx="2">
+            <animate
+              attributeName="y"
+              from="24"
+              to="24"
+              dur="2s"
+              begin="0.4s"
+              repeatCount="indefinite"
+              values="24; 14; 34; 24; 24"
+              keyTimes="0; 0.1; 0.3; 0.4; 1"
+            />
+          </rect>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
