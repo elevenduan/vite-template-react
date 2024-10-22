@@ -22,7 +22,7 @@ export function userAccount(
   return request({
     url: "/api/account",
     method: "post",
-    data: params,
+    params,
     ...config,
   });
 }

@@ -15,17 +15,25 @@ const defaultConfig = {
 
 export function request(config: RequestConfig) {
   const params = Object.assign({}, defaultConfig, config);
+
+  // post请求参数名称
+  if (params.method?.toLocaleLowerCase() === "post") {
+    params.data = params.params;
+    params.params = undefined;
+  }
+
   return axios(params)
     .then((res) => {
       const data = res.data;
       // success
       if (data.code === "0000") {
         if (VITE_MOCK === "true") {
-          console.log(params.url, res.data);
+          console.log(params.url, data);
         }
-        return res.data;
+        return data;
       }
       // error
+      console.log(data.message);
       return Promise.reject(res);
     })
     .catch((err) => {
