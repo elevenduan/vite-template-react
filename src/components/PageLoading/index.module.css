@@ -1,0 +1,84 @@
+/* loading */
+.mask {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  /* hide */
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.outer,
+.inner {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.outer {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  background-color: rgb(0 0 0 / 70%);
+  border-radius: 8px;
+}
+
+.inner {
+  line-height: 1.6;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+}
+
+@keyframes scale {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(0.4);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.scale {
+  background-color: rgb(255 255 255);
+  width: 4px;
+  height: 26px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  animation: 1s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0s infinite normal both
+    running scale;
+
+  &.scale1 {
+    animation-delay: 0.1s;
+  }
+
+  &.scale2 {
+    animation-delay: 0.2s;
+  }
+
+  &.scale3 {
+    animation-delay: 0.3s;
+  }
+
+  &.scale4 {
+    animation-delay: 0.4s;
+  }
+
+  &.scale5 {
+    animation-delay: 0.5s;
+  }
+}

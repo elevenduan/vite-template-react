@@ -7,7 +7,6 @@
     "dev": "VITE_MOCK=true vite",
     "dev:no-mock": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky"
   },

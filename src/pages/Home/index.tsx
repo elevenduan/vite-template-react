@@ -12,7 +12,7 @@ function Index() {
     runAsync({ id: 24 });
   }, []);
   return (
-    <PageContent>
+    <PageContent loading={loading}>
       <div>Home Home Home</div>
       <div>
         <Link to="/">To Home</Link>
