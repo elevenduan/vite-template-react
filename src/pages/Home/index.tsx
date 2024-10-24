@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { userLogin, userAccount } from "@/services/api";
+import { apiUserLogin, apiUserAccount } from "@/services/api";
 import { useRequest } from "ahooks";
 import { PageContent } from "@/components";
 
 function Index() {
-  const { runAsync, loading } = useRequest(userAccount, { manual: true });
+  const { runAsync, loading } = useRequest(apiUserAccount, { manual: true });
 
   useEffect(() => {
-    userLogin({ id: 24, name: "coco" });
+    apiUserLogin({ id: 24, name: "coco" });
     runAsync({ id: 24 });
   }, []);
   return (

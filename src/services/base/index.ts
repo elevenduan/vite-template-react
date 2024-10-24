@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { RequestConfig } from "./types";
+import type { Response, RequestConfig } from "@/services/base/types";
 import Mock from "@/../mock";
 
 const { VITE_API_URL, PROD, VITE_MOCK } = import.meta.env;
@@ -48,3 +48,17 @@ export function request(config: RequestConfig) {
       return Promise.reject(data);
     });
 }
+
+export const generate =
+  <P, D>(url: string, method: string) =>
+  (params: P, config?: RequestConfig): Response<D> =>
+    request({
+      url,
+      method,
+      params,
+      ...config,
+    });
+
+export const generateGet = <P, D>(url: string) => generate<P, D>(url, "get");
+
+export const generatePost = <P, D>(url: string) => generate<P, D>(url, "post");

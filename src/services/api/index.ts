@@ -1,28 +1,10 @@
-import { request } from "../base";
-import type { Response, RequestConfig } from "../base/types";
+import { generateGet, generatePost } from "../base";
 
-/** 登录 GET /login */
-export function userLogin(
-  params: API.ReqUserLogin,
-  config?: RequestConfig,
-): Response<API.ResUserLogin> {
-  return request({
-    url: "/api/login",
-    method: "get",
-    params,
-    ...config,
-  });
-}
+export const apiUserLogin = generateGet<API.ReqUserLogin, API.ResUserLogin>(
+  "/api/login",
+);
 
-/** 账户 POST /account */
-export function userAccount(
-  params: API.ReqUserAccount,
-  config?: RequestConfig,
-): Response<API.ResUserAccount> {
-  return request({
-    url: "/api/account",
-    method: "post",
-    params,
-    ...config,
-  });
-}
+export const apiUserAccount = generatePost<
+  API.ReqUserAccount,
+  API.ResUserAccount
+>("/api/account");
