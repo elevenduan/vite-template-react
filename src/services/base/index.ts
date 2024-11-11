@@ -10,7 +10,7 @@ if (VITE_MOCK === "true") {
 
 const defaultConfig = {
   baseURL: PROD ? VITE_API_URL : undefined,
-  headers: { "Content-Type": "application/json" }, // application/x-www-form-urlencoded // multipart/form-data
+  headers: { "Content-Type": "application/json" } // application/x-www-form-urlencoded // multipart/form-data
 };
 
 export function request(config: RequestConfig) {
@@ -22,13 +22,25 @@ export function request(config: RequestConfig) {
     params.params = undefined;
   }
 
+  // 添加响应拦截器
+  axios.interceptors.response.use((response) => {
+    // 标准化返回名称：code, message, data
+    const res = response.data;
+    return {
+      ...response,
+      data: { code: res.code, message: res.message, data: res.data }
+    };
+  });
+
   return axios(params)
     .then((res) => {
       const data = res.data;
       // success
       if (data.code === "0000") {
         if (VITE_MOCK === "true") {
-          console.log(params.url, data);
+          console.log("url:", params.url);
+          console.log("req:", params.params || params.data);
+          console.log("res:", data);
         }
         return data;
       }
@@ -43,6 +55,7 @@ export function request(config: RequestConfig) {
       // 网络请求异常，而非code码代表的服务处理失败
       if (res?.status !== 200) {
         console.log("网络请求异常");
+        return;
       }
 
       return Promise.reject(data);
@@ -56,9 +69,9 @@ export const generate =
       url,
       method,
       params,
-      ...config,
+      ...config
     });
 
-export const generateGet = <P, D>(url: string) => generate<P, D>(url, "get");
+export const genGet = <P, D>(url: string) => generate<P, D>(url, "get");
 
-export const generatePost = <P, D>(url: string) => generate<P, D>(url, "post");
+export const genPost = <P, D>(url: string) => generate<P, D>(url, "post");

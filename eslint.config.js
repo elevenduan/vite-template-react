@@ -11,11 +11,11 @@ export default tseslint.config(
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: globals.browser
     },
     plugins: {
       "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      "react-refresh": reactRefresh
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -23,7 +23,7 @@ export default tseslint.config(
       "import/no-anonymous-default-export": "off",
       "react-hooks/exhaustive-deps": "off",
       "jsx-a11y/anchor-is-valid": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
 );

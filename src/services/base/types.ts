@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from "axios";
 
-export type Response<T> = Promise<{
+export type Response<D> = Promise<{
   code: string;
   message: string;
-  data: T;
+  data: D;
 }>;
 
 export type RequestConfig = AxiosRequestConfig;

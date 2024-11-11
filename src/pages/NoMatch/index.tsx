@@ -1,4 +1,4 @@
-import noMatch from "./no-match.svg";
+import noMatch from "@/assets/no-match.svg";
 import styles from "./index.module.css";
 
 export default function Index() {

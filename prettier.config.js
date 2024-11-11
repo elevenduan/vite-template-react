@@ -1,6 +1,5 @@
 const config = {
-  singleQuote: false,
-  trailingComma: "all",
+  trailingComma: "none"
 };
 
 export default config;

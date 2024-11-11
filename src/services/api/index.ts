@@ -1,10 +1,9 @@
-import { generateGet, generatePost } from "../base";
+import { genGet, genPost } from "../base";
 
-export const apiUserLogin = generateGet<API.ReqUserLogin, API.ResUserLogin>(
-  "/api/login",
+export const apiUserLogin = genGet<API.ReqUserLogin, API.ResUserLogin>(
+  "/api/login"
 );
 
-export const apiUserAccount = generatePost<
-  API.ReqUserAccount,
-  API.ResUserAccount
->("/api/account");
+export const apiUserAccount = genPost<API.ReqUserAccount, API.ResUserAccount>(
+  "/api/account"
+);

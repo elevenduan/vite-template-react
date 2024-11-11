@@ -5,7 +5,7 @@ import type { RouteObject } from "react-router-dom";
 // Add Title
 function TitleElement({
   title,
-  element,
+  element
 }: {
   title?: string;
   element: React.ReactElement;
@@ -22,7 +22,7 @@ function getRoutes(routes: any[]): RouteObject[] {
   return routes.map(({ element, children, title, ...rest }) => ({
     element: element && <TitleElement element={element} title={title} />,
     children: children?.length ? getRoutes(children) : children,
-    ...rest,
+    ...rest
   }));
 }
 

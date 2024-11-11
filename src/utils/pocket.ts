@@ -16,7 +16,7 @@ export function asterisk(
   str: string,
   start?: number,
   end?: number,
-  sign: string = "*",
+  sign: string = "*"
 ) {
   const slice = str.slice(start, end);
   const replace = slice.replace(/./g, sign);
@@ -28,7 +28,7 @@ export function separator(
   str: string,
   sign: string = " ",
   len: number = 4,
-  reverse: boolean = false,
+  reverse: boolean = false
 ) {
   const reg = reverse
     ? `(\\S{1,${len}})(?=(\\S{${len}})+(?:$))`

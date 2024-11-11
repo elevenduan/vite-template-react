@@ -43,7 +43,7 @@ export const RouterTransition = (props: PropsType) => {
     effect = "parallax",
     pagesClassName = "",
     onActive,
-    onDone,
+    onDone
   } = props;
   const timeout = effect === "none" ? 0 : time;
   const location = useLocation();
@@ -52,7 +52,7 @@ export const RouterTransition = (props: PropsType) => {
   const [status, setStatus] = useState<StatusType>("done");
   const [childs, setChilds] = useState<[ChildElement, ChildElement]>([
     null,
-    null,
+    null
   ]);
   const enterRef = useRef<ChildElement & { className?: string }>(null);
   const exitRef = useRef<ChildElement & { className?: string }>(null);
@@ -63,14 +63,14 @@ export const RouterTransition = (props: PropsType) => {
       {
         ref: enterRef,
         key: location.key,
-        className: getPageClassNames("enter"),
+        className: getPageClassNames("enter")
       },
-      children,
+      children
     );
     const exitChild = childs[0]
       ? React.cloneElement(childs[0], {
           ref: exitRef,
-          className: getPageClassNames("exit"),
+          className: getPageClassNames("exit")
         })
       : null;
 
@@ -106,7 +106,7 @@ export const RouterTransition = (props: PropsType) => {
         setStatus("done");
         onDone?.();
       },
-      childs[0] && childs[1] ? timeout : 0,
+      childs[0] && childs[1] ? timeout : 0
     );
   }, [childs]);
 

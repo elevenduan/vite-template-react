@@ -5,5 +5,5 @@ import App from "./App.tsx";
 createRoot(document.getElementById("app")!).render(
   <HashRouter>
     <App />
-  </HashRouter>,
+  </HashRouter>
 );

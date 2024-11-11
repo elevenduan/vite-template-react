@@ -10,16 +10,16 @@ export default defineConfig(({ mode }) => {
     base: VITE_BASE_URL,
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "src"),
-      },
+        "@": path.resolve(__dirname, "src")
+      }
     },
     server: {
       proxy: {
         "/api": {
           target: VITE_API_URL,
-          changeOrigin: true,
-        },
-      },
-    },
+          changeOrigin: true
+        }
+      }
+    }
   };
 });
