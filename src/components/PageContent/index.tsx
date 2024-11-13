@@ -18,7 +18,7 @@ export const PageContent = (props: PropsType) => {
       <div className={styles.page}>
         <div className={styles.top}>{header}</div>
         <div className={styles.mid}>
-          <div className={`${styles["content"]} ${className}`}>{children}</div>;
+          <div className={`${styles["content"]} ${className}`}>{children}</div>
         </div>
         <div className={styles.bot}>{footer}</div>
       </div>

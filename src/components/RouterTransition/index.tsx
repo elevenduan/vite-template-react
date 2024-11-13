@@ -95,6 +95,7 @@ export const RouterTransition = (props: PropsType) => {
   }, [location]);
 
   useEffect(() => {
+    if (!childs[0] && !childs[1]) return;
     setTimeout(
       () => {
         if (enterRef.current) {
@@ -106,7 +107,7 @@ export const RouterTransition = (props: PropsType) => {
         setStatus("done");
         onDone?.();
       },
-      childs[0] && childs[1] ? timeout : 0
+      childs[0] && childs[1] ? timeout + 200 : 0
     );
   }, [childs]);
 

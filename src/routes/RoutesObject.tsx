@@ -1,10 +1,10 @@
 // no match
-import NoMatch from "../pages/NoMatch";
+import NoMatch from "@/pages/NoMatch";
 
 // pages
-import Login from "../pages/Login";
-import Home from "../pages/Home";
-import About from "../pages/About";
+import Login from "@/pages/Login";
+import Home from "@/pages/Home";
+import About from "@/pages/About";
 
 // routes
 const RoutesObject = [

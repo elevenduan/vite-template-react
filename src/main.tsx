@@ -1,9 +1,10 @@
 import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
-import App from "./App.tsx";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import routes from "@/routes";
+import "./main.css";
+
+const router = createHashRouter(routes);
 
 createRoot(document.getElementById("app")!).render(
-  <HashRouter>
-    <App />
-  </HashRouter>
+  <RouterProvider router={router}></RouterProvider>
 );

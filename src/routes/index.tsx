@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import RoutesObject from "./RoutesObject";
 import type { RouteObject } from "react-router-dom";
+import RoutesObject from "./RoutesObject";
+import { RouterTransition } from "@/components";
 
-// Add Title
-function TitleElement({
+// Add Title & RouterTransition
+function WrapElement({
   title,
   element
 }: {
@@ -14,13 +15,14 @@ function TitleElement({
     if (title) {
       document.title = title;
     }
-  }, []);
-  return element;
+  }, [title]);
+
+  return <RouterTransition>{element}</RouterTransition>;
 }
 
 function getRoutes(routes: any[]): RouteObject[] {
   return routes.map(({ element, children, title, ...rest }) => ({
-    element: element && <TitleElement element={element} title={title} />,
+    element: element && <WrapElement element={element} title={title} />,
     children: children?.length ? getRoutes(children) : children,
     ...rest
   }));
