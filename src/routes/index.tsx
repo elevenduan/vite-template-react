@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import type { RouteObject } from "react-router-dom";
 import RoutesObject from "./RoutesObject";
-import { RouterTransition } from "@/components";
 
-// Add Title & RouterTransition
+// Add Title
 function WrapElement({
   title,
   element
@@ -17,7 +16,7 @@ function WrapElement({
     }
   }, [title]);
 
-  return <RouterTransition>{element}</RouterTransition>;
+  return element;
 }
 
 function getRoutes(routes: any[]): RouteObject[] {
