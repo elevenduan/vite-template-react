@@ -14,3 +14,14 @@
 - `pnpm run dev`
 - `pnpm run mock`
 - `pnpm run build`
+
+## VSCode Config
+
+- `lint --fix` is automatically executed when saved
+
+```json
+ "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit",
+    "source.fixAll.eslint": "explicit"
+  }
+```
