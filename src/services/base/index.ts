@@ -1,12 +1,7 @@
 import axios from "axios";
 import type { Response, RequestConfig } from "@/services/base/types";
-import Mock from "@/../mock";
 
-const { VITE_API_URL, PROD, VITE_MOCK } = import.meta.env;
-
-if (VITE_MOCK === "true") {
-  Mock();
-}
+const { VITE_API_URL, PROD } = import.meta.env;
 
 const defaultConfig = {
   baseURL: PROD ? VITE_API_URL : undefined,
@@ -37,11 +32,6 @@ export function request(config: RequestConfig) {
       const data = res.data;
       // success
       if (data.code === "0000") {
-        if (VITE_MOCK === "true") {
-          console.log("url:", params.url);
-          console.log("req:", params.params || params.data);
-          console.log("res:", data);
-        }
         return data;
       }
       // error
