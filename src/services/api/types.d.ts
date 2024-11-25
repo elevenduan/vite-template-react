@@ -1,21 +1,25 @@
 declare namespace API {
   // login
   export type ReqUserLogin = {
-    id: number;
+    id: string;
     name: string;
   };
   export type ResUserLogin = {
-    id: number;
+    id: string;
     name: string;
-    status?: "available" | "pending" | "sold";
+    status: "available" | "pending" | "sold";
+    email: string;
+    date: string;
+    list: { name: string }[];
+    imageUrl: string;
   };
 
   // account
   export type ReqUserAccount = {
-    id: number;
+    id: string;
   };
   export type ResUserAccount = {
-    id: number;
+    id: string;
     status?: "placed" | "approved" | "delivered";
     shipDate?: string;
     complete?: boolean;

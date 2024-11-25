@@ -9,7 +9,7 @@ function Index() {
 
   useEffect(() => {
     apiUserLogin({ id: 24, name: "coco" });
-    runAsync({ id: 24 });
+    runAsync({ id: "24" });
   }, []);
   return (
     <PageContent loading={loading}>
