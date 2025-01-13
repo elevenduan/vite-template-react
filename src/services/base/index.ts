@@ -23,7 +23,11 @@ export function request(config: RequestConfig) {
     const res = response.data;
     return {
       ...response,
-      data: { code: res.code, message: res.message, data: res.data }
+      data: {
+        code: res.code || res.errCode,
+        message: res.message || res.errMsg,
+        data: res.data
+      }
     };
   });
 
@@ -31,7 +35,7 @@ export function request(config: RequestConfig) {
     .then((res) => {
       const data = res.data;
       // success
-      if (data.code === "0000") {
+      if (["00", "0000"].includes(data.code)) {
         return data;
       }
       // error
@@ -62,6 +66,6 @@ export const generate =
       ...config
     });
 
-export const genGet = <P, D>(url: string) => generate<P, D>(url, "get");
+export const get = <P, D>(url: string) => generate<P, D>(url, "get");
 
-export const genPost = <P, D>(url: string) => generate<P, D>(url, "post");
+export const post = <P, D>(url: string) => generate<P, D>(url, "post");

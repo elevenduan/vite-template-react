@@ -1,10 +1,15 @@
-import { createRoot } from "react-dom/client";
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import routes from "@/routes";
 import "./main.css";
+import { createRoot } from "react-dom/client";
+import { HashRouter, useRoutes } from "react-router";
+import routes from "@/routes";
+import { RouterTransition } from "@/components";
 
-const router = createHashRouter(routes);
+function App() {
+  return <RouterTransition>{useRoutes(routes)}</RouterTransition>;
+}
 
 createRoot(document.getElementById("app")!).render(
-  <RouterProvider router={router}></RouterProvider>
+  <HashRouter>
+    <App />
+  </HashRouter>
 );

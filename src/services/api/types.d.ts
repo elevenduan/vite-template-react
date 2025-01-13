@@ -1,5 +1,5 @@
 declare namespace API {
-  // login
+  // login //
   export type ReqUserLogin = {
     id: string;
     name: string;

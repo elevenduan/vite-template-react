@@ -31,7 +31,8 @@ export default defineConfig(({ mode }) => {
           target: VITE_API_URL,
           changeOrigin: true
         }
-      }
+      },
+      host: "0.0.0.0"
     }
   };
 });

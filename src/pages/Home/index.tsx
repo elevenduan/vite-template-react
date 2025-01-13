@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { apiUserLogin, apiUserAccount } from "@/services/api";
 import { useRequest } from "ahooks";
 import { PageContent } from "@/components";
@@ -8,7 +8,7 @@ function Index() {
   const { runAsync, loading } = useRequest(apiUserAccount, { manual: true });
 
   useEffect(() => {
-    apiUserLogin({ id: 24, name: "coco" });
+    apiUserLogin({ id: "24", name: "coco" });
     runAsync({ id: "24" });
   }, []);
   return (

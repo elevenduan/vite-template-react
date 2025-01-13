@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import type { RouteObject } from "react-router-dom";
-import RoutesObject from "./RoutesObject";
+import type { RouteObject } from "react-router";
+import RoutesData from "./RoutesData";
 
 // Add Title
 function WrapElement({
@@ -27,6 +27,6 @@ function getRoutes(routes: any[]): RouteObject[] {
   }));
 }
 
-const routes = getRoutes(RoutesObject);
+const routes = getRoutes(RoutesData);
 
 export default routes;
