@@ -41,7 +41,7 @@
     "vite-plugin-mock": "^3.0.2"
   },
   "lint-staged": {
-    "**/*.{css,scss,sass,less}": "stylelint --fix",
+    "**/*.{css,scss,sass,less}": "stylelint --fix=lax",
     "**/*.{js,jsx,ts,tsx,cjs,mjs}": "eslint --fix",
     "**/*.{js,jsx,ts,tsx,cjs,mjs,css,scss,sass,less,md,json,html}": "prettier --write"
   }
