@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import type { RouteObject } from "react-router";
-import RoutesData from "./RoutesData";
+import { RouteObject } from "react-router";
+import data from "./data";
 
-// Add Title
-function WrapElement({
-  title,
-  element
-}: {
+// title
+type TypeProps = {
   title?: string;
-  element: React.ReactElement;
-}) {
+  element?: React.ReactNode | null;
+};
+
+function Element({ title, element }: TypeProps) {
   useEffect(() => {
     if (title) {
       document.title = title;
@@ -19,14 +18,15 @@ function WrapElement({
   return element;
 }
 
+// routes
 function getRoutes(routes: any[]): RouteObject[] {
-  return routes.map(({ element, children, title, ...rest }) => ({
-    element: element && <WrapElement element={element} title={title} />,
+  return routes.map(({ title, element, children, ...rest }) => ({
+    element: element ? <Element title={title} element={element} /> : element,
     children: children?.length ? getRoutes(children) : children,
     ...rest
   }));
 }
 
-const routes = getRoutes(RoutesData);
+const routes = getRoutes(data);
 
 export default routes;

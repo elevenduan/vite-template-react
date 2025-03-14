@@ -38,13 +38,11 @@
   z-index: 1;
 }
 
-.rt-pages-backward .rt-page-enter,
-.rt-pages-backward .rt-page-enter-done {
+.rt-pages-backward .rt-page-enter {
   z-index: 1;
 }
 
-.rt-pages-backward .rt-page-exit,
-.rt-pages-backward .rt-page-exit-done {
+.rt-pages-backward .rt-page-exit {
   z-index: 2;
 }
 
