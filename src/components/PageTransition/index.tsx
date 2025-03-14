@@ -14,7 +14,7 @@ type TypeProps = {
   onDone?: () => void;
 };
 type TypeStyle = React.CSSProperties & {
-  "--rt-page-transition-duration"?: string;
+  "--pt-page-transition-duration"?: string;
 };
 
 // index
@@ -51,7 +51,7 @@ export const RouterTransition = (props: TypeProps) => {
   // duration, style
   const duration = effect === "none" ? 0 : originDuration;
   const pagesStyle: TypeStyle = {
-    "--rt-page-transition-duration": `${duration}ms`
+    "--pt-page-transition-duration": `${duration}ms`
   };
 
   function setPageDirection() {
@@ -85,16 +85,16 @@ export const RouterTransition = (props: TypeProps) => {
 
   return (
     <div
-      className={`rt-pages rt-pages-${direction} rt-pages-${effect} ${pagesClassName}`}
+      className={`pt-pages pt-pages-${direction} pt-pages-${effect} ${pagesClassName}`}
       style={pagesStyle}
     >
       <div
-        className={`rt-page rt-page-${status === "active" ? "enter" : "enter-done"}`}
+        className={`pt-page pt-page-${status === "active" ? "enter" : "enter-done"}`}
       >
         {childs[0]}
       </div>
       <div
-        className={`rt-page rt-page-${status === "active" ? "exit" : "exit-done"}`}
+        className={`pt-page pt-page-${status === "active" ? "exit" : "exit-done"}`}
       >
         {childs[1]}
       </div>
