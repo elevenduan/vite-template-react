@@ -32,7 +32,7 @@ const getDirection = (prevIdx: number, nextIdx: number): TypeDirection => {
   return "refresh";
 };
 
-export const RouterTransition = (props: TypeProps) => {
+export const PageTransition = (props: TypeProps) => {
   const {
     children,
     duration: originDuration = 500,

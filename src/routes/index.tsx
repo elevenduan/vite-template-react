@@ -1,32 +1,60 @@
-import React, { useEffect } from "react";
-import { RouteObject } from "react-router";
-import data from "./data";
+import { useEffect } from "react";
+import { useOutlet, useMatches, useLocation } from "react-router";
+import { PageTransition } from "@/components";
 
-// title
-type TypeProps = {
-  title?: string;
-  element?: React.ReactNode | null;
-};
+// no match
+import NoMatch from "@/pages/NoMatch";
 
-function Element({ title, element }: TypeProps) {
+// pages
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import About from "@/pages/About";
+
+// Layout
+function Layout() {
+  const outlet = useOutlet();
+  const matches = useMatches();
+  const location = useLocation();
+
   useEffect(() => {
-    if (title) {
-      document.title = title;
-    }
-  }, [title]);
+    const handle: any = matches[matches.length - 1]?.handle;
 
-  return element;
+    // title
+    if (handle?.title) {
+      document.title = handle.title;
+    }
+  }, [location.key]);
+
+  return <PageTransition>{outlet}</PageTransition>;
 }
 
 // routes
-function getRoutes(routes: any[]): RouteObject[] {
-  return routes.map(({ title, element, children, ...rest }) => ({
-    element: element ? <Element title={title} element={element} /> : element,
-    children: children?.length ? getRoutes(children) : children,
-    ...rest
-  }));
-}
+const data = [
+  {
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        handle: { title: "首页" }
+      },
+      {
+        path: "login",
+        element: <Login />,
+        handle: { title: "登录" }
+      },
+      {
+        path: "about",
+        element: <About />,
+        handle: { title: "关于" }
+      },
+      {
+        path: "*",
+        element: <NoMatch />,
+        handle: { title: "未找到页面" }
+      }
+    ]
+  }
+];
 
-const routes = getRoutes(data);
-
-export default routes;
+export default data;
