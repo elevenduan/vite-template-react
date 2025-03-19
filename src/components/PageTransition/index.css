@@ -30,20 +30,22 @@
 
 .pt-page-enter,
 .pt-page-enter-done {
-  z-index: 2;
+  z-index: 3;
 }
 
 .pt-page-exit,
 .pt-page-exit-done {
-  z-index: 1;
-}
-
-.pt-pages-backward .pt-page-enter {
-  z-index: 1;
-}
-
-.pt-pages-backward .pt-page-exit {
   z-index: 2;
+}
+
+.pt-pages-backward .pt-page-enter,
+.pt-pages-backward .pt-page-exit-done {
+  z-index: 2;
+}
+
+.pt-pages-backward .pt-page-exit,
+.pt-pages-backward .pt-page-enter-done {
+  z-index: 3;
 }
 
 /* parallax */

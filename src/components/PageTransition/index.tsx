@@ -46,7 +46,7 @@ export const PageTransition = (props: TypeProps) => {
   const prevIdxRef = useRef<number>(getIdx());
   const [direction, setDirection] = useState<TypeDirection>("refresh");
   const [status, setStatus] = useState<TypeStatus>("done");
-  const [childs, setChilds] = useState<ReactNode[]>([null, null]);
+  const refEnterHtml = useRef("");
 
   // duration, style
   const duration = effect === "none" ? 0 : originDuration;
@@ -54,6 +54,7 @@ export const PageTransition = (props: TypeProps) => {
     "--pt-page-transition-duration": `${duration}ms`
   };
 
+  // direction
   function setPageDirection() {
     const next = getIdx();
     const dir = getDirection(prevIdxRef.current, next);
@@ -64,19 +65,23 @@ export const PageTransition = (props: TypeProps) => {
   function start() {
     setPageDirection();
     // clone
-    const res = [children, childs[0]];
-    setChilds(res);
+    const nodeEnter = document.querySelector("#pt-page-enter");
+    const nodeExit = document.querySelector("#pt-page-exit");
+    if (nodeEnter && nodeExit) {
+      nodeExit.innerHTML = refEnterHtml.current;
+      refEnterHtml.current = nodeEnter.getHTML() || "";
+    }
     // active
     setStatus("active");
     onActive?.();
     // done
-    setTimeout(
-      () => {
-        setStatus("done");
-        onDone?.();
-      },
-      res[0] && res[1] ? duration : 0
-    );
+    setTimeout(() => {
+      setStatus("done");
+      onDone?.();
+      if (nodeExit) {
+        nodeExit.innerHTML = "";
+      }
+    }, duration);
   }
 
   useEffect(() => {
@@ -89,15 +94,15 @@ export const PageTransition = (props: TypeProps) => {
       style={pagesStyle}
     >
       <div
+        id="pt-page-enter"
         className={`pt-page pt-page-${status === "active" ? "enter" : "enter-done"}`}
       >
-        {childs[0]}
+        {children}
       </div>
       <div
+        id="pt-page-exit"
         className={`pt-page pt-page-${status === "active" ? "exit" : "exit-done"}`}
-      >
-        {childs[1]}
-      </div>
+      ></div>
     </div>
   );
 };
