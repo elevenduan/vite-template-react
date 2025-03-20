@@ -46,7 +46,7 @@ export const PageTransition = (props: TypeProps) => {
   const prevIdxRef = useRef<number>(getIdx());
   const [direction, setDirection] = useState<TypeDirection>("refresh");
   const [status, setStatus] = useState<TypeStatus>("done");
-  const refEnterHtml = useRef("");
+  const refEnterHtml = useRef<any>();
 
   // duration, style
   const duration = effect === "none" ? 0 : originDuration;
@@ -68,8 +68,8 @@ export const PageTransition = (props: TypeProps) => {
     const nodeEnter = document.querySelector("#pt-page-enter");
     const nodeExit = document.querySelector("#pt-page-exit");
     if (nodeEnter && nodeExit) {
-      nodeExit.innerHTML = refEnterHtml.current;
-      refEnterHtml.current = nodeEnter.getHTML() || "";
+      nodeExit.append(...(refEnterHtml.current || []));
+      refEnterHtml.current = nodeEnter.querySelectorAll("& > *");
     }
     // active
     setStatus("active");
