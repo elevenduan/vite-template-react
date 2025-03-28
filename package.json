@@ -37,7 +37,7 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.2.1",
+    "vite": "^6.2.3",
     "vite-plugin-mock": "^3.0.2"
   },
   "lint-staged": {
