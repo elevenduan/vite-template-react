@@ -1,10 +1,11 @@
+// import type
 declare namespace API {
   // login //
-  export type ReqUserLogin = {
+  type ReqUserLogin = {
     id: string;
     name: string;
   };
-  export type ResUserLogin = {
+  type ResUserLogin = {
     id: string;
     name: string;
     status: "available" | "pending" | "sold";
@@ -15,10 +16,10 @@ declare namespace API {
   };
 
   // account
-  export type ReqUserAccount = {
+  type ReqUserAccount = {
     id: string;
   };
-  export type ResUserAccount = {
+  type ResUserAccount = {
     id: string;
     status?: "placed" | "approved" | "delivered";
     shipDate?: string;
@@ -29,3 +30,7 @@ declare namespace API {
     url?: string;
   };
 }
+
+// export
+export = API;
+export as namespace API;

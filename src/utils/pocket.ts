@@ -12,27 +12,15 @@ export function thousandSeparator(val: string | number, fixed: number = 2) {
 }
 
 // 替换占位符 // start, end 同 String.prototype.slice(start, end)
-export function asterisk(
-  str: string,
-  start?: number,
-  end?: number,
-  sign: string = "*"
-) {
+export function asterisk(str: string, start?: number, end?: number, sign: string = "*") {
   const slice = str.slice(start, end);
   const replace = slice.replace(/./g, sign);
   return str.replace(slice, replace);
 }
 
 // 添加分隔符 // 默认分隔符为空格 // 默认间隔长度4 // 默认从头开始
-export function separator(
-  str: string,
-  sign: string = " ",
-  len: number = 4,
-  reverse: boolean = false
-) {
-  const reg = reverse
-    ? `(\\S{1,${len}})(?=(\\S{${len}})+(?:$))`
-    : `(\\S{${len}})(?=\\S)`;
+export function separator(str: string, sign: string = " ", len: number = 4, reverse: boolean = false) {
+  const reg = reverse ? `(\\S{1,${len}})(?=(\\S{${len}})+(?:$))` : `(\\S{${len}})(?=\\S)`;
   return str.replace(new RegExp(reg, "g"), "$1" + sign);
 }
 
@@ -55,11 +43,8 @@ export function isObject(val: any) {
 
 // 对象合并
 export function merge(target: any, source: any) {
-  if (!isObject(target) || !isObject(source)) {
-    return {};
-  }
-  const output = Object.assign({}, target);
-  const extend = Object.assign({}, source);
+  const output = Object.assign({}, isObject(target) ? target : {});
+  const extend = Object.assign({}, isObject(source) ? source : {});
   for (const key of Object.keys(extend)) {
     if (isObject(output[key]) && isObject(extend[key])) {
       output[key] = merge(output[key], extend[key]);
