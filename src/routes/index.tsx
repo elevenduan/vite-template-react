@@ -17,7 +17,7 @@ function Layout() {
   const location = useLocation();
 
   useEffect(() => {
-    const handle: any = matches[matches.length - 1]?.handle;
+    const handle: any = matches.at(-1)?.handle;
 
     // title
     if (handle?.title) {
@@ -36,25 +36,25 @@ const data = [
       {
         index: true,
         element: <Home />,
-        handle: { title: "首页" }
+        handle: { title: "首页" },
       },
       {
         path: "login",
         element: <Login />,
-        handle: { title: "登录" }
+        handle: { title: "登录" },
       },
       {
         path: "about",
         element: <About />,
-        handle: { title: "关于" }
+        handle: { title: "关于" },
       },
       {
         path: "*",
         element: <NoMatch />,
-        handle: { title: "未找到页面" }
-      }
-    ]
-  }
+        handle: { title: "未找到页面" },
+      },
+    ],
+  },
 ];
 
 export default data;

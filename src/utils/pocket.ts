@@ -41,7 +41,7 @@ export function isObject(val: any) {
   return Object.prototype.toString.call(val) === "[object Object]";
 }
 
-// 对象合并
+// 键值对象合并
 export function merge(target: any, source: any) {
   const output = Object.assign({}, isObject(target) ? target : {});
   const extend = Object.assign({}, isObject(source) ? source : {});

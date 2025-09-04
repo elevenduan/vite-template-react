@@ -11,7 +11,7 @@
 
 ## Available Scripts
 
-- `pnpm run start`
+- `pnpm run dev`
 - `pnpm run mock`
 - `pnpm run build`
 
