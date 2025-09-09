@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { useOutlet, useMatches, useLocation } from "react-router";
+import { useOutlet, useMatches, useLocation, useNavigate } from "react-router";
 import { PageTransition } from "@/components";
+import { initGlobalNavigate } from "@/utils";
 
 // no match
 import NoMatch from "@/pages/NoMatch";
@@ -15,6 +16,11 @@ function Layout() {
   const outlet = useOutlet();
   const matches = useMatches();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    initGlobalNavigate(navigate);
+  }, []);
 
   useEffect(() => {
     const handle: any = matches.at(-1)?.handle;

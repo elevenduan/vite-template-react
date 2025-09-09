@@ -1,3 +1,5 @@
+import { NavigateFunction } from "react-router";
+
 // 是否数字或者字符串数字
 export function isNum(val: any) {
   return Number.parseFloat(val) === Number(val);
@@ -53,4 +55,10 @@ export function merge(target: any, source: any) {
     }
   }
   return output;
+}
+
+// navigate
+export let navigate: NavigateFunction;
+export function initGlobalNavigate(nav: NavigateFunction) {
+  navigate = nav;
 }
