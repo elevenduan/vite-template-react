@@ -33,15 +33,7 @@ const getDirection = (prevIdx: number, nextIdx: number): TypeDirection => {
 };
 
 export const PageTransition = (props: TypeProps) => {
-  const {
-    children,
-    duration: originDuration = 500,
-    effect = "parallax",
-    pagesClassName = "",
-    onActive,
-    onDone
-  } = props;
-
+  const { children, duration: originDuration = 500, effect = "parallax", pagesClassName = "", onActive, onDone } = props;
   const location = useLocation();
   const prevIdxRef = useRef<number>(getIdx());
   const [direction, setDirection] = useState<TypeDirection>("refresh");
@@ -50,9 +42,7 @@ export const PageTransition = (props: TypeProps) => {
 
   // duration, style
   const duration = effect === "none" ? 0 : originDuration;
-  const pagesStyle: TypeStyle = {
-    "--pt-page-transition-duration": `${duration}ms`
-  };
+  const pagesStyle: TypeStyle = { "--pt-page-transition-duration": `${duration}ms` };
 
   // direction
   function setPageDirection() {
@@ -69,7 +59,7 @@ export const PageTransition = (props: TypeProps) => {
     const nodeExit = document.querySelector("#pt-page-exit");
     if (nodeEnter && nodeExit) {
       nodeExit.append(...(refEnterHtml.current || []));
-      refEnterHtml.current = nodeEnter.querySelectorAll("& > *");
+      refEnterHtml.current = nodeEnter.querySelectorAll("&>*");
     }
     // active
     setStatus("active");
@@ -79,7 +69,7 @@ export const PageTransition = (props: TypeProps) => {
       setStatus("done");
       onDone?.();
       if (nodeExit) {
-        nodeExit.innerHTML = "";
+        nodeExit.replaceChildren();
       }
     }, duration);
   }
@@ -89,20 +79,11 @@ export const PageTransition = (props: TypeProps) => {
   }, [location.key]);
 
   return (
-    <div
-      className={`pt-pages pt-pages-${direction} pt-pages-${effect} ${pagesClassName}`}
-      style={pagesStyle}
-    >
-      <div
-        id="pt-page-enter"
-        className={`pt-page pt-page-${status === "active" ? "enter" : "enter-done"}`}
-      >
+    <div className={`pt-pages pt-pages-${direction} pt-pages-${effect} ${pagesClassName}`} style={pagesStyle}>
+      <div id="pt-page-enter" className={`pt-page pt-page-${status === "active" ? "enter" : "enter-done"}`}>
         {children}
       </div>
-      <div
-        id="pt-page-exit"
-        className={`pt-page pt-page-${status === "active" ? "exit" : "exit-done"}`}
-      ></div>
+      <div id="pt-page-exit" className={`pt-page pt-page-${status === "active" ? "exit" : "exit-done"}`}></div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { merge } from "@/utils";
+import { Toast } from "antd-mobile";
 
 export type Response<D> = {
-  rspCode: string;
-  rspMsg: string;
+  code: string;
+  message: string;
   data: D;
 };
 
@@ -14,16 +15,16 @@ const defaultConfig = {
   headers: { "Content-Type": "application/json" }, // application/x-www-form-urlencoded // multipart/form-data
 };
 
-export function request(config: AxiosRequestConfig) {
-  const params = Object.assign({}, defaultConfig, config);
+export function request(cfg: AxiosRequestConfig) {
+  const config = Object.assign({}, defaultConfig, cfg);
 
   // post请求参数名称
-  if (params.method?.toLocaleLowerCase() === "post") {
-    params.data = params.params;
-    params.params = undefined;
+  if (config.method?.toLocaleLowerCase() === "post") {
+    config.data = config.params;
+    config.params = undefined;
   }
 
-  return axios(params)
+  return axios(config)
     .then((res) => {
       const data = res.data;
       // success
@@ -34,8 +35,12 @@ export function request(config: AxiosRequestConfig) {
       if (res.config.responseType === "blob") {
         return res;
       }
+      // token过期
+      if (["4030"].includes(data.code)) {
+        // logout();
+      }
       // error
-      console.log(data.message);
+      Toast.show(data.message);
       return Promise.reject(res);
     })
     .catch((err) => {
@@ -44,7 +49,7 @@ export function request(config: AxiosRequestConfig) {
 
       // 网络请求异常，而非code码代表的服务处理失败
       if (res?.status !== 200) {
-        console.log("网络请求异常");
+        Toast.show("网络请求异常");
         return;
       }
 

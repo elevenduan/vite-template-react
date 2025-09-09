@@ -1,4 +1,5 @@
 import { NavigateFunction } from "react-router";
+import qs from "qs";
 
 // 是否数字或者字符串数字
 export function isNum(val: any) {
@@ -62,3 +63,5 @@ export let navigate: NavigateFunction;
 export function initGlobalNavigate(nav: NavigateFunction) {
   navigate = nav;
 }
+
+export const urlSearch = qs.parse(window.location.search, { ignoreQueryPrefix: true });
