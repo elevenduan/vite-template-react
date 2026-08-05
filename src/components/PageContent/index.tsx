@@ -18,7 +18,9 @@ export const PageContent = (props: PageContentProps) => {
       <div className={styles.page}>
         <div className={styles.top}>{header}</div>
         <div className={styles.mid}>
-          <div className={`${styles["content"]} ${className}`}>{children}</div>
+          <div data-page-content className={`${styles["content"]} ${className}`}>
+            {children}
+          </div>
         </div>
         <div className={styles.bot}>{footer}</div>
       </div>

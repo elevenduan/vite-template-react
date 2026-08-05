@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import { useEffect } from "react";
+import { type ReactNode, useEffect } from "react";
 import { useOutlet, useLocation, useNavigate } from "react-router";
+import { PageTransition } from "../components";
 import { initGlobalNavigate } from "../utils";
 
 // pages
@@ -22,7 +22,7 @@ function Layout() {
     // console.log("location", location);
   }, [location.key]);
 
-  return outlet;
+  return <PageTransition>{outlet}</PageTransition>;
 }
 
 // Wrapper

@@ -6,12 +6,12 @@ export default function Index() {
   const location = useLocation();
 
   useEffect(() => {
-    // console.log(location.key);
+    console.log("login", location);
   }, [location.key]);
 
   return (
     <PageContent>
-      <div>Login Login Login</div>
+      <div>Login Login Login Login Login Login</div>
     </PageContent>
   );
 }

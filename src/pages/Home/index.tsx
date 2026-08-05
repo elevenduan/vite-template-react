@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { PageContent } from "../../components/PageContent";
 import { Button, Form } from "antd-mobile";
 import { ProNumber, ProInput } from "@bigflower/pro-mobile";
@@ -10,9 +10,10 @@ export default function Index() {
   const location = useLocation();
   const [form] = Form.useForm();
   const { runAsync, loading } = useRequest(apiUserAccount, { manual: true });
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // console.log(location.key);
+    console.log("home", location);
   }, [location.key]);
 
   useEffect(() => {
@@ -32,6 +33,10 @@ export default function Index() {
         <ProNumber label="金额" name="money" required extra="元" />
         <ProInput label="邮箱" name="email" required verify="email" />
       </Form>
+
+      <Button size="large" color="primary" block onClick={() => navigate("/login")}>
+        下一页
+      </Button>
     </PageContent>
   );
 }

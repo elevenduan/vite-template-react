@@ -1,0 +1,80 @@
+.outer {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--app-background-color, #fff);
+}
+
+.entering.forward {
+  animation: enter-forward var(--app-transition-duration, 400ms) ease-out both;
+  z-index: 1;
+}
+
+.leaving.forward {
+  animation: leave-forward var(--app-transition-duration, 400ms) ease-in both;
+  z-index: 0;
+}
+
+.entering.backward {
+  animation: enter-backward var(--app-transition-duration, 400ms) ease-out both;
+  z-index: 1;
+}
+
+.leaving.backward {
+  animation: leave-backward var(--app-transition-duration, 400ms) ease-in both;
+  z-index: 2;
+}
+
+@keyframes enter-forward {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes leave-forward {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes enter-backward {
+  from {
+    transform: translateX(-20%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes leave-backward {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entering,
+  .leaving {
+    animation-duration: 1ms;
+  }
+}

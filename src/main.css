@@ -1,5 +1,6 @@
 :root {
   --app-background-color: #fff;
+  --app-transition-duration: 400ms;
 }
 
 body {
@@ -11,4 +12,5 @@ html,
 body,
 .app {
   height: 100%;
+  overflow: hidden;
 }
