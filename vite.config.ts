@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => {
         enabled: VITE_MOCK === "true",
       }),
     ],
+    css: {
+      transformer: "lightningcss",
+    },
     base: VITE_BASE_URL,
     server: {
       proxy: {
