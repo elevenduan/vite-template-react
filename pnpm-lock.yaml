@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bigflower/pro-mobile':
-        specifier: ^1.0.2
-        version: 1.0.2(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)
+        specifier: ^1.0.4
+        version: 1.0.4(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)
       ahooks:
         specifier: ^3.9.7
         version: 3.9.7(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -194,8 +194,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bigflower/pro-mobile@1.0.2':
-    resolution: {integrity: sha512-6dEp8RMUybkPvCfmPdXWvCQyb3ilgFk3+cGFVKQzb8wQvKhupVudMTK8POCXMqUIWodnW7nfV6PL1b6Ztj/F2w==}
+  '@bigflower/pro-mobile@1.0.4':
+    resolution: {integrity: sha512-S+yIboAN6qw6CZeyoABjND4Hq0s5UKZTo1+dHGFHldhdPI++uh7EjQVP5l6VouoPR69pLr7FnBQ8uwgdFyobJA==}
     peerDependencies:
       antd-mobile: ^5.42.3
       antd-mobile-icons: ^0.3.0
@@ -818,6 +818,7 @@ packages:
 
   crypto-js@4.2.0:
     resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
+    deprecated: Active development of CryptoJS has been discontinued. This library is no longer maintained.
 
   css-functions-list@3.3.3:
     resolution: {integrity: sha512-8HFEBPKhOpJPEPu70wJJetjKta86Gw9+CCyCnB3sui2qQfOvRyqBy4IKLKKAwdMpWb2lHXWk9Wb4Z6AmaUT1Pg==}
@@ -873,8 +874,8 @@ packages:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
-  electron-to-chromium@1.5.400:
-    resolution: {integrity: sha512-96EWDNjM59SYflgeV5Ylsf4EMiq1a25YjCnJH7cxn/AF2H3pILRweaUnoLax0yKHWdpOzY6JKEu45e8irqZIHA==}
+  electron-to-chromium@1.5.401:
+    resolution: {integrity: sha512-H6ViHN68nGYlChEvlIU67fn8O2/tpbWQPwck98yaJmh+08LSvHiydzDQ6oXNccLU3kNRVIRS9A4mA7CG+i6fLQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1429,8 +1430,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-releases@2.0.51:
-    resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
+  node-releases@2.0.52:
+    resolution: {integrity: sha512-MRlTqhAfoMx/4mhEbPo3Hi02g9LJZaJkka69V6h67Cb1gjrAG0jsTE4CZX1eptNx+VCAwJmfpnDIF4P0Nh1A7A==}
     engines: {node: '>=18'}
 
   normalize-path@3.0.0:
@@ -2061,7 +2062,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bigflower/pro-mobile@1.0.2(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)':
+  '@bigflower/pro-mobile@1.0.4(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)':
     dependencies:
       antd-mobile: 5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       antd-mobile-icons: 0.3.0
@@ -2582,8 +2583,8 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.12
       caniuse-lite: 1.0.30001806
-      electron-to-chromium: 1.5.400
-      node-releases: 2.0.51
+      electron-to-chromium: 1.5.401
+      node-releases: 2.0.52
       update-browserslist-db: 1.2.3(browserslist@4.28.7)
 
   bytes@3.1.2: {}
@@ -2711,7 +2712,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  electron-to-chromium@1.5.400: {}
+  electron-to-chromium@1.5.401: {}
 
   emoji-regex@8.0.0: {}
 
@@ -3211,7 +3212,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-releases@2.0.51: {}
+  node-releases@2.0.52: {}
 
   normalize-path@3.0.0: {}
 

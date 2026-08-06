@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 import axios from "axios";
-import { merge } from "../../utils";
+import { utils } from "@bigflower/pro-mobile";
 import { Toast } from "antd-mobile";
 
 export type Response<D> = {
@@ -17,7 +17,7 @@ const defaultConfig = {
 };
 
 export const request = (cfg: AxiosRequestConfig) => {
-  const config: AxiosRequestConfig = merge(defaultConfig, cfg as any);
+  const config: AxiosRequestConfig = utils.merge(defaultConfig, cfg as any);
 
   // 参数名称
   if (config.method?.toLowerCase() === "get") {
@@ -65,4 +65,4 @@ export const request = (cfg: AxiosRequestConfig) => {
 export const create =
   <P, D>(url: string, method: string, cfg1: AxiosRequestConfig = {}) =>
   (params: P, cfg2: AxiosRequestConfig = {}): Promise<D extends Blob ? D : Response<D>> =>
-    request(merge({ url, method, data: params }, cfg1 as any, cfg2 as any));
+    request(utils.merge({ url, method, data: params }, cfg1 as any, cfg2 as any));

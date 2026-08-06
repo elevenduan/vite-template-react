@@ -31,7 +31,7 @@ export default function Index() {
         }
       >
         <ProNumber label="金额" name="money" required extra="元" />
-        <ProInput label="邮箱" name="email" required verify="email" />
+        <ProInput label="邮箱" name="email" required verify="isEmail" />
       </Form>
 
       <Button size="large" color="primary" block onClick={() => navigate("/login")}>
