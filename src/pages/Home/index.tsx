@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { PageContent } from "../../components/PageContent";
+import { PageContent } from "@/components/PageContent";
 import { Button, Form } from "antd-mobile";
 import { ProNumber, ProInput } from "@bigflower/pro-mobile";
 import { useRequest } from "ahooks";
-import { apiUserAccount } from "../../services/api";
+import { apiUserAccount } from "@/services/api";
 
 export default function Index() {
   const location = useLocation();
