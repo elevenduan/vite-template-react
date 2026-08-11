@@ -56,6 +56,7 @@ export const request = (cfg: AxiosRequestConfig) => {
       // 网络请求异常，而非code码代表的服务处理失败
       if (res?.status !== 200) {
         Toast.show("网络请求异常");
+        return new Promise(() => {});
       }
 
       return Promise.reject(data);
