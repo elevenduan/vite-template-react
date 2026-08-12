@@ -14,11 +14,10 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
-      "react-hooks/exhaustive-deps": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "jsx-a11y/anchor-is-valid": "off",
-      "import/no-anonymous-default-export": "off",
-      "react-refresh/only-export-components": "off",
+      // "jsx-a11y/anchor-is-valid": "off",
+      // "react-hooks/exhaustive-deps": "off",
+      // "@typescript-eslint/no-explicit-any": "off",
+      // "react-refresh/only-export-components": "off",
     },
   },
 ]);

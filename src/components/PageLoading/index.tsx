@@ -13,7 +13,7 @@ export const PageLoading = (props: PageLoadingProps) => {
 
   useEffect(() => {
     setTimeout(() => setFade(show), !show && fade ? duration : 0);
-  }, [show]);
+  }, [show, fade, duration]);
 
   return (
     <div className={`${styles.mask} ${show || fade ? styles.block : ""} ${show && fade ? styles.show : ""}`} style={{ transitionDuration: duration + "ms" }}>

@@ -1,10 +1,12 @@
-import "./main.css";
-import { createRoot } from "react-dom/client";
-import { HashRouter, useRoutes } from "react-router";
+import { createRoot, type Root } from "react-dom/client";
+import { HashRouter } from "react-router";
 import { unstableSetRender } from "antd-mobile";
-import routes from "./routes";
+import Routes from "@/routes";
+import "./main.css";
 
-unstableSetRender((node, container: any) => {
+type RenderContainer = (Element | DocumentFragment) & { _reactRoot?: Root };
+
+unstableSetRender((node, container: RenderContainer) => {
   container._reactRoot ||= createRoot(container);
   const root = container._reactRoot;
   root.render(node);
@@ -14,12 +16,8 @@ unstableSetRender((node, container: any) => {
   };
 });
 
-function App() {
-  return useRoutes(routes);
-}
-
 createRoot(document.getElementById("app")!).render(
   <HashRouter>
-    <App />
+    <Routes />
   </HashRouter>
 );

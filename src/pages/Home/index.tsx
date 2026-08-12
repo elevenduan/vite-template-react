@@ -14,11 +14,11 @@ export default function Index() {
 
   useEffect(() => {
     console.log("home", location);
-  }, [location.key]);
+  }, [location]);
 
   useEffect(() => {
     runAsync({ id: "24" });
-  }, []);
+  }, [runAsync]);
 
   return (
     <PageContent loading={loading}>

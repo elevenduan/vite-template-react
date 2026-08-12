@@ -7,7 +7,7 @@ export default function Index() {
 
   useEffect(() => {
     console.log("login", location);
-  }, [location.key]);
+  }, [location]);
 
   return (
     <PageContent>
