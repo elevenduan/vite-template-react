@@ -17,9 +17,9 @@ export default defineConfig(({ mode }) => {
         enabled: VITE_MOCK === "true",
       }),
     ],
-    css: {
-      transformer: "lightningcss",
-    },
+    // css: {
+    //   transformer: "lightningcss",
+    // },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -33,7 +33,9 @@ export default defineConfig(({ mode }) => {
       proxy: {
         "/api": { target: VITE_API_URL, changeOrigin: true },
       },
-      host: "0.0.0.0",
+      // host: "0.0.0.0",
+      // port: 80,
+      // allowedHosts: true,
     },
   };
 });
