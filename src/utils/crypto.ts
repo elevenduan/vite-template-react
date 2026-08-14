@@ -1,33 +1,42 @@
-import CryptoJS from "crypto-js";
 import JSEncrypt from "jsencrypt";
+import { cbc } from "@noble/ciphers/aes.js";
+import { bytesToHex, hexToBytes, utf8ToBytes, bytesToUtf8 } from "@noble/ciphers/utils.js";
+import { md5 } from "@noble/hashes/legacy.js";
 
 // AES
-const aesKey = CryptoJS.enc.Utf8.parse("aesKey");
-const aesIv = CryptoJS.enc.Utf8.parse("0000000000000000");
-const aesCfg = { iv: aesIv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 };
-export function aesEncrypt(str: string) {
-  const encrypted = CryptoJS.AES.encrypt(str, aesKey, aesCfg);
-  // const hexStr = encrypted.ciphertext.toString().toUpperCase();
-  const base64Str = encrypted.toString().toUpperCase();
-  return base64Str;
+const AES_KEY = utf8ToBytes("12345678901234567890123456789012"); // 32 字节 (AES-256)
+const AES_IV = utf8ToBytes("1234567890123456"); // 16 字节
+
+export function encryptAES(str: string) {
+  const aes = cbc(AES_KEY, AES_IV);
+  const encodedBytes = utf8ToBytes(str);
+  const cipherBytes = aes.encrypt(encodedBytes);
+  const hexString = bytesToHex(cipherBytes);
+  return hexString.toUpperCase();
 }
-export function aesDecrypt(str: string) {
-  const bytes = CryptoJS.AES.decrypt(str, aesKey, aesCfg);
-  const text = bytes.toString(CryptoJS.enc.Utf8);
+
+export function decryptAES(str: string) {
+  const aes = cbc(AES_KEY, AES_IV);
+  const cipherBytes = hexToBytes(str);
+  const encodedBytes = aes.decrypt(cipherBytes);
+  const text = bytesToUtf8(encodedBytes);
   return text;
 }
 
 // MD5
-export function md5(str: string) {
-  const base64Str = CryptoJS.MD5(str).toString().toUpperCase();
-  return base64Str;
+export function getMD5(str: string) {
+  const encodedBytes = utf8ToBytes(str);
+  const digestBytes = md5(encodedBytes);
+  const hexString = bytesToHex(digestBytes);
+  return hexString.toUpperCase();
 }
 
 // RSA
 const rsaPublicKey = "rsaPublicKey";
 const rsaCrypt = new JSEncrypt();
 rsaCrypt.setPublicKey(rsaPublicKey);
-export function rsaEncrypt(str: string) {
+
+export function encryptRSA(str: string) {
   const base64Str = rsaCrypt.encrypt(str);
   return base64Str || "";
 }
