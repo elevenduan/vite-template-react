@@ -51,12 +51,11 @@ export const request = (cfg: AxiosRequestConfig) => {
     })
     .catch((err) => {
       const res = err?.response || err;
-      const data = res.data;
+      const data = res?.data;
 
       // 网络请求异常，而非code码代表的服务处理失败
       if (res?.status !== 200) {
         Toast.show("网络请求异常");
-        return new Promise(() => {});
       }
 
       return Promise.reject(data);
@@ -64,6 +63,6 @@ export const request = (cfg: AxiosRequestConfig) => {
 };
 
 export const create =
-  <P, D>(url: string, method: string, cfg1: AxiosRequestConfig = {}) =>
-  (params: P, cfg2: AxiosRequestConfig = {}): Promise<D extends Blob ? D : Response<D>> =>
-    request(utils.merge({ url, method, data: params }, cfg1 as Record<string, unknown>, cfg2 as Record<string, unknown>));
+  <P, D>(url: string, method: string, cfg1?: AxiosRequestConfig) =>
+  (data: P, cfg2?: AxiosRequestConfig): Promise<D extends Blob ? D : Response<D>> =>
+    request(utils.merge({ url, method, data }, cfg1 as Record<string, unknown>, cfg2 as Record<string, unknown>));

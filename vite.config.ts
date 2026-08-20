@@ -17,16 +17,43 @@ export default defineConfig(({ mode }) => {
         enabled: VITE_MOCK === "true",
       }),
     ],
-    // css: {
-    //   transformer: "lightningcss",
-    // },
-    resolve: {
-      alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+    css: {
+      transformer: "lightningcss",
+      lightningcss: {
+        targets: {
+          chrome: 88 << 16,
+          edge: 88 << 16,
+          firefox: 78 << 16,
+          safari: 14 << 16,
+          ios_saf: 14 << 16,
+        },
       },
     },
     build: {
       target: "es2021",
+      rolldownOptions: {
+        output: {
+          codeSplitting: {
+            groups: [
+              {
+                name: "react",
+                test: /[\\/]node_modules[\\/](react|react-dom|react-router)[\\/]/,
+                priority: 100,
+              },
+              {
+                name: "antd-mobile",
+                test: /[\\/]node_modules[\\/](antd-mobile)[\\/]/,
+                priority: 50,
+              },
+            ],
+          },
+        },
+      },
+    },
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
     },
     base: VITE_BASE_URL,
     server: {
