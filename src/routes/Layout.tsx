@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useOutlet, useLocation, useNavigate } from "react-router";
+import { useOutlet, useLocation, useNavigate, matchRoutes } from "react-router";
 import { PageTransition } from "@/components";
 import { initGlobalNavigate } from "@/utils";
+import data from "./data";
 
 export default function Index() {
   const outlet = useOutlet();
@@ -13,7 +14,12 @@ export default function Index() {
   }, [navigate]);
 
   useEffect(() => {
-    // console.log("location", location);
+    // 设置页面标题
+    const matches = matchRoutes(data, location);
+    const title = matches?.[matches.length - 1].route.handle?.title;
+    if (title) {
+      document.title = title;
+    }
   }, [location]);
 
   return <PageTransition>{outlet}</PageTransition>;
