@@ -9,8 +9,11 @@ importers:
   .:
     dependencies:
       '@bigflower/pro-mobile':
-        specifier: ^1.0.5
-        version: 1.0.5(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: ^1.1.1
+        version: 1.1.1(@bigflower/utils@1.0.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@bigflower/utils':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@noble/ciphers':
         specifier: ^2.3.0
         version: 2.3.0
@@ -194,14 +197,18 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bigflower/pro-mobile@1.0.5':
-    resolution: {integrity: sha512-VO99eq3l7GyivRzn1AHmobbAsX4miIzaPKDCN8Ew5OubE8XtauKuDQg4abDnFY1Ww3Asx/bBue0XNt5Q5JOFwQ==}
+  '@bigflower/pro-mobile@1.1.1':
+    resolution: {integrity: sha512-WieYygWJMZajyJ7kTzEO65lg0gzAKBRxvCMyLVrPKna5Opj8HCWcGnLtaV6zwx+8yHzdymC7K+QrMsJq7ezdEg==}
     peerDependencies:
+      '@bigflower/utils': ^1.0.0
       antd-mobile: ^5.42.3
       antd-mobile-icons: ^0.3.0
       dayjs: ^1.11.21
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
+
+  '@bigflower/utils@1.0.0':
+    resolution: {integrity: sha512-k0N80CHzwlOlAfgy20rALAKDqqCVXNzjZttCVkphjk+qqSHiDTB6MqrWOcabNb9DbMUJyZg8K1dk/ti+LXIhOg==}
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -2065,13 +2072,16 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bigflower/pro-mobile@1.0.5(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@bigflower/pro-mobile@1.1.1(@bigflower/utils@1.0.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
+      '@bigflower/utils': 1.0.0
       antd-mobile: 5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       antd-mobile-icons: 0.3.0
       dayjs: 1.11.21
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
+
+  '@bigflower/utils@1.0.0': {}
 
   '@cacheable/memory@2.2.0':
     dependencies:

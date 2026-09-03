@@ -1,6 +1,6 @@
 import type { NavigateFunction } from "react-router";
 import qs from "qs";
-import { utils } from "@bigflower/pro-mobile";
+import { isEmpty } from "@bigflower/utils";
 
 // navigate
 export let navigate: NavigateFunction;
@@ -11,7 +11,7 @@ export const urlSearch = qs.parse(window.location.search, { ignoreQueryPrefix: t
 
 // 对象转字符串 // 升序
 export function stringify(value: unknown, options?: qs.IStringifyOptions) {
-  if (typeof value !== "object" || utils.isEmpty(value)) return "";
+  if (typeof value !== "object" || isEmpty(value)) return "";
   return qs.stringify(value, { sort: (a, b) => a.localeCompare(b), ...options });
 }
 

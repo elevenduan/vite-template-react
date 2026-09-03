@@ -1,0 +1,3 @@
+minimumReleaseAgeExclude:
+  - '@bigflower/utils@1.0.0'
+  - '@bigflower/pro-mobile@1.1.1'

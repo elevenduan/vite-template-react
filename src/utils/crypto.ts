@@ -6,9 +6,9 @@ import { md5 } from "@noble/hashes/legacy.js";
 // AES
 const AES_KEY = utf8ToBytes("12345678901234567890123456789012"); // 32 字节 (AES-256)
 const AES_IV = utf8ToBytes("1234567890123456"); // 16 字节
+const aes = cbc(AES_KEY, AES_IV);
 
 export function encryptAES(str: string) {
-  const aes = cbc(AES_KEY, AES_IV);
   const encodedBytes = utf8ToBytes(str);
   const cipherBytes = aes.encrypt(encodedBytes);
   const hexString = bytesToHex(cipherBytes);
@@ -16,7 +16,6 @@ export function encryptAES(str: string) {
 }
 
 export function decryptAES(str: string) {
-  const aes = cbc(AES_KEY, AES_IV);
   const cipherBytes = hexToBytes(str);
   const encodedBytes = aes.decrypt(cipherBytes);
   const text = bytesToUtf8(encodedBytes);

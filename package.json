@@ -13,7 +13,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@bigflower/pro-mobile": "^1.0.5",
+    "@bigflower/pro-mobile": "^1.1.1",
+    "@bigflower/utils": "^1.0.0",
     "@noble/ciphers": "^2.3.0",
     "@noble/hashes": "^2.3.0",
     "ahooks": "^3.9.7",
