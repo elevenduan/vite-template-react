@@ -2,9 +2,9 @@ import type { RouteObject } from "react-router";
 import Layout from "./Layout";
 
 // pages
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import NoMatch from "../pages/NoMatch";
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import NoMatch from "@/pages/NoMatch";
 
 // routes
 const data: RouteObject[] = [

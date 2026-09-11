@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { PageContent } from "@/components/PageContent";
+import { PageContent } from "@/components";
 import { Button, Form } from "antd-mobile";
 import { ProNumber, ProInput, ProCheckList } from "@bigflower/pro-mobile";
 import { useRequest } from "ahooks";
