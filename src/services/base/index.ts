@@ -9,6 +9,10 @@ export type Response<D> = {
   data: D;
 };
 
+type CustomConfig = {
+  hideToast?: boolean | (string | number)[];
+};
+
 const { VITE_API_URL, PROD } = import.meta.env;
 
 const defaultConfig = {
@@ -16,7 +20,7 @@ const defaultConfig = {
   headers: { "Content-Type": "application/json" }, // application/x-www-form-urlencoded // multipart/form-data
 };
 
-export const request = (cfg: AxiosRequestConfig) => {
+export const request = (cfg: AxiosRequestConfig, ccfg?: CustomConfig) => {
   const config: AxiosRequestConfig = merge(defaultConfig, cfg as Record<string, unknown>);
 
   // 参数名称
@@ -46,7 +50,11 @@ export const request = (cfg: AxiosRequestConfig) => {
       }
 
       // error
-      Toast.show(message);
+      const hide = ccfg?.hideToast;
+      if (!(hide === true || (Array.isArray(hide) && hide.includes(code))) && message) {
+        Toast.show(message);
+      }
+
       return Promise.reject(res);
     })
     .catch((err) => {
@@ -63,6 +71,6 @@ export const request = (cfg: AxiosRequestConfig) => {
 };
 
 export const create =
-  <P, D>(url: string, method: string, cfg1?: AxiosRequestConfig) =>
-  (data: P, cfg2?: AxiosRequestConfig): Promise<D extends Blob ? D : Response<D>> =>
-    request(merge({ url, method, data }, cfg1 as Record<string, unknown>, cfg2 as Record<string, unknown>));
+  <P, D>(url: string, method: string, cfg1?: AxiosRequestConfig, ccfg1?: CustomConfig) =>
+  (data: P, cfg2?: AxiosRequestConfig, ccfg2?: CustomConfig): Promise<D extends Blob ? D : Response<D>> =>
+    request(merge({ url, method, data }, cfg1 as Record<string, unknown>, cfg2 as Record<string, unknown>), merge({}, ccfg1, ccfg2));

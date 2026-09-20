@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bigflower/pro-mobile':
-        specifier: ^1.1.2
-        version: 1.1.2(@bigflower/utils@1.1.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: ^1.1.3
+        version: 1.1.3(@bigflower/utils@1.1.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@bigflower/utils':
         specifier: ^1.1.0
         version: 1.1.0
@@ -197,8 +197,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bigflower/pro-mobile@1.1.2':
-    resolution: {integrity: sha512-rn/SCPx0dcwJDuRHa6utDSrlE8UQXiYJPdJBbY3SY5i2OI4gC69C54VJllL9VCjz7xoQwzwfa0FpURA2/jfYMw==}
+  '@bigflower/pro-mobile@1.1.3':
+    resolution: {integrity: sha512-2HIDznqLYlGUAVFNQRXCDJzXAAFne6LrInte9OS/+W5nKSDMaN9fTEE8WsLgyjzaSSijwLn4HynaUojH8S8I9w==}
     peerDependencies:
       '@bigflower/utils': ^1.0.0
       antd-mobile: ^5.42.3
@@ -2075,7 +2075,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bigflower/pro-mobile@1.1.2(@bigflower/utils@1.1.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@bigflower/pro-mobile@1.1.3(@bigflower/utils@1.1.0)(antd-mobile-icons@0.3.0)(antd-mobile@5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@bigflower/utils': 1.1.0
       antd-mobile: 5.42.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
