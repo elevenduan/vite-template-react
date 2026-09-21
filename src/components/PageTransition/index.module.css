@@ -22,6 +22,11 @@
   z-index: 0;
 }
 
+.leaving {
+  pointer-events: none;
+  will-change: transform;
+}
+
 .entering.backward {
   animation: enter-backward var(--app-transition-duration, 400ms) ease-out both;
   z-index: 1;

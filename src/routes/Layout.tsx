@@ -20,6 +20,7 @@ export default function Index() {
     if (title) {
       document.title = title;
     }
+    console.log("layout:", location);
   }, [location]);
 
   return <PageTransition>{outlet}</PageTransition>;
