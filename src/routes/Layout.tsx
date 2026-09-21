@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useOutlet, useLocation, useNavigate, matchRoutes } from "react-router";
-import { PageTransition } from "@/components";
+import { useLocation, useNavigate, matchRoutes } from "react-router";
 import { initGlobalNavigate } from "@/utils";
+import { PageKeep } from "@/components";
 import data from "./data";
 
 export default function Index() {
-  const outlet = useOutlet();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,5 +22,5 @@ export default function Index() {
     console.log("layout:", location);
   }, [location]);
 
-  return <PageTransition>{outlet}</PageTransition>;
+  return <PageKeep />;
 }

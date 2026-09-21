@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { PageContent } from "@/components";
+import { PageContent, useCacheActive, usePageActive } from "@/components";
 import { Button, Form } from "antd-mobile";
 import { ProNumber, ProInput, ProCheckList } from "@bigflower/pro-mobile";
 import { useRequest } from "ahooks";
@@ -11,6 +11,17 @@ export default function Index() {
   const [form] = Form.useForm();
   const { runAsync, loading } = useRequest(apiUserAccount, { manual: true });
   const navigate = useNavigate();
+
+  useCacheActive(() => {
+    console.log("Home page is active again");
+  });
+
+  usePageActive(() => {
+    // const interval = setInterval(() => {
+    //   console.log("Home page is active");
+    // }, 1000);
+    // return () => clearInterval(interval);
+  });
 
   useEffect(() => {
     console.log("home", location);
@@ -47,6 +58,8 @@ export default function Index() {
       <Button size="large" color="primary" block onClick={() => navigate("/login")}>
         下一页
       </Button>
+
+      <div style={{ height: "800px" }}></div>
     </PageContent>
   );
 }

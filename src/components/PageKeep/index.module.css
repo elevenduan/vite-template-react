@@ -1,0 +1,93 @@
+.root {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--app-background-color);
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--app-background-color);
+}
+
+.cached {
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.forward .active {
+  z-index: 1;
+  animation: enter-forward var(--app-transition-duration) ease-out both;
+}
+
+.backward .active {
+  z-index: 1;
+  animation: enter-backward var(--app-transition-duration) ease-out both;
+}
+
+.leaving {
+  pointer-events: none;
+  will-change: transform;
+}
+
+.forward .leaving {
+  z-index: 0;
+  animation: leave-forward var(--app-transition-duration) ease-in both;
+}
+
+.backward .leaving {
+  z-index: 2;
+  animation: leave-backward var(--app-transition-duration) ease-in both;
+}
+
+@keyframes enter-forward {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leave-forward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes enter-backward {
+  from {
+    transform: translateX(-20%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leave-backward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .active,
+  .leaving {
+    animation-duration: 1ms;
+  }
+}
