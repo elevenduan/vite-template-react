@@ -13,12 +13,12 @@
 }
 
 .entering.forward {
-  animation: enter-forward var(--app-transition-duration, 400ms) ease-out both;
+  animation: enter-forward var(--app-transition-duration) ease-out both;
   z-index: 1;
 }
 
 .leaving.forward {
-  animation: leave-forward var(--app-transition-duration, 400ms) ease-in both;
+  animation: leave-forward var(--app-transition-duration) ease-in both;
   z-index: 0;
 }
 
@@ -28,12 +28,12 @@
 }
 
 .entering.backward {
-  animation: enter-backward var(--app-transition-duration, 400ms) ease-out both;
+  animation: enter-backward var(--app-transition-duration) ease-out both;
   z-index: 1;
 }
 
 .leaving.backward {
-  animation: leave-backward var(--app-transition-duration, 400ms) ease-in both;
+  animation: leave-backward var(--app-transition-duration) ease-in both;
   z-index: 2;
 }
 
